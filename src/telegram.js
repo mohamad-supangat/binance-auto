@@ -37,6 +37,36 @@ bot.command("status", async (ctx) => {
         );
     }
 });
+
+bot.command("tradingview_ta", async (ctx) => {
+    if (!checkUser(ctx)) return true;
+
+    let intervals = [];
+    for (const interval of ["5m", "15m", "1h", "4h"]) {
+        let signals = [interval];
+        const ta = await bf.getTradingViewTA(interval);
+
+        for (const signal of ["oscillators", "moving_averages", "summary"]) {
+            signals.push(ta[signal]["RECOMMENDATION"]);
+        }
+
+        // console.log(signals);
+
+        intervals.push(signals);
+    }
+
+    console.log(intervals);
+
+    const table = bf
+        .genTable(intervals)
+        .setHeading("OSCI", "MA", "#")
+        .toString();
+    // console.log(table);
+    const text = `<b>Trading View TA Recommendation</b>\n${config.symbol}\n\n<pre>${table}</pre>`;
+    // console.log(table.toString());
+    ctx.replyWithHTML(text);
+});
+
 bot.launch();
 
 // Enable graceful stop

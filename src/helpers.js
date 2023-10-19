@@ -6,6 +6,13 @@ import _ from "lodash";
 
 import { AsciiTable3 } from "ascii-table3";
 
+import {
+    TradingViewScan as TradingViewTA,
+    SCREENERS_ENUM as TradingViewTA_SCREENERS,
+    EXCHANGES_ENUM as TradingViewTA_EXCHANGES,
+    INTERVALS_ENUM as TradingViewTA_INTERVALS,
+} from "trading-view-recommends-parser-nodejs";
+
 export function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -406,5 +413,21 @@ export async function getBalance(client) {
 }
 
 export function genTable(rows = [], title = null) {
-    return new AsciiTable3(title).setStyle("unicode-single").addRowMatrix(rows);
+    return new AsciiTable3(title).addRowMatrix(rows);
+}
+
+/**
+ * mendapatkan sinyal recomendasi tradingview
+ * @returns {}
+ */
+export async function getTradingViewTA(interval = "5m") {
+    const result = await new TradingViewTA(
+        TradingViewTA_SCREENERS["crypto"],
+        TradingViewTA_EXCHANGES["BINANCE"],
+        config.symbol,
+        TradingViewTA_INTERVALS[interval],
+        // You can pass axios instance. It's optional argument (you can use it for pass custom headers or proxy)
+    ).analyze();
+
+    return result;
 }

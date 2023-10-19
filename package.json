@@ -17,6 +17,8 @@
         "dotenv": "^16.3.1",
         "lodash": "^4.17.21",
         "moment": "^2.29.4",
-        "telegraf": "^4.14.0"
+        "telegraf": "^4.14.0",
+        "trading-view-recommends-parser-nodejs": "^1.0.2",
+        "tslib": "^2.6.2"
     }
 }
