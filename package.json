@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start:telegram": "node src/telegram.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "type": "module",
