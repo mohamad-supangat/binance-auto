@@ -33,7 +33,12 @@ export async function getStatus() {
     text += `<b>Market ${config.market}</b>\nprice : <b>${currentPrice}</b>`;
 
     if (position) {
-        text += `position : ${position.type} - ${position.qty}\nentry : ${position.entryPrice}\nmark : ${position.markPrice}\nliquidation : ${position.liquidationPrice}\npnl : <b>${position.pnl}</b>`;
+        text += `position : ${position.type == 1 ? "buy" : "sell"}
+qty: ${position.qty}
+entry : ${position.entryPrice}
+mark : ${position.markPrice}
+liquidation : ${position.liquidationPrice}
+pnl : <b>${position.pnl}</b>`;
     }
 
     return text;
