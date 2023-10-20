@@ -47,10 +47,11 @@ The bot will start listening for Telegram commands.
 
 **Telegram commands**
 
-The bot supports the following Telegram commands:
-
-* `/status`:  Get account balance, targeted symbol price and position.
-
+The bot supports the following Telegram commands, copy and paste to botFather:
+```
+status - get balance, symbol price, future position
+tradingview_ta - get tradingview technical analitycs recommendations
+```
 **Disclaimer**
 
 Please use this script at your own risk. Automated trading can be risky, and there is no guarantee of profits.
