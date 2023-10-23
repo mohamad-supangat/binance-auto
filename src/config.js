@@ -7,6 +7,12 @@ const config = {
     test: process.env.TEST === "true", // check untuk testnet
     paper: true, // check untuk menjalankan paper mode / tidak create order live
 
+    percent_order: 100,
+    balance: 0.5,
+
+    leverage: "20",
+    margin_type: "CROSSED",
+
     market: `${symbol}/${base}`,
     symbol: `${symbol}${base}`,
     base_asset: base,
@@ -37,6 +43,13 @@ const config = {
             key: "EXIT",
             value: -1,
         },
+    },
+
+    stop_loss: {
+        order_type: "STOP",
+        min_pnl: 0.05,
+        every: 0.05,
+        spread: 0.08,
     },
 };
 
