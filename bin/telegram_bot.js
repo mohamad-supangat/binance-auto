@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
-import config from "./config.js";
-import * as fn from "./functions.js";
+import config from "./../src/config.js";
+import * as fn from "./../src/functions.js";
 
 const bot = new Telegraf(config.telegram_bot_token);
 
