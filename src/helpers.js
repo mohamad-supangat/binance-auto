@@ -439,6 +439,7 @@ export async function getTradingViewTA(interval = "5m") {
  * @classdesc
  */
 export async function sendMessage(message, parse_mode = "HTML") {
+    const bot = new Telegraf(config.telegram_bot_token);
     return bot.telegram.sendMessage(config.telegram_chat_id, message, {
         parse_mode: parse_mode,
     });

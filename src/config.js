@@ -22,6 +22,22 @@ const config = {
     // pengaturan telegram
     telegram_bot_token: process.env.TELEGRAM_BOT_TOKEN,
     telegram_chat_id: process.env.TELEGRAM_CHAT_ID,
+
+    tradingview: {
+        locale: "id",
+        symbol: `${symbol}${base}`,
+        signal_delay: 3,
+        timeframe: "15",
+        indicator: "PUB;0Bgj6noVlHAZK2fbozpk8pwQcgzMToCx",
+        buy: {
+            key: "ENTER",
+            value: 1,
+        },
+        sell: {
+            key: "EXIT",
+            value: -1,
+        },
+    },
 };
 
 export default config;

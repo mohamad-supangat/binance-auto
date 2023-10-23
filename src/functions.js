@@ -2,7 +2,6 @@ import * as bf from "./helpers.js";
 import config from "./config.js";
 
 const binance = bf.binanceClient();
-const bot = new Telegraf(config.telegram_bot_token);
 
 export async function tradingViewTA() {
     let intervals = [];
@@ -31,7 +30,7 @@ export async function getStatus() {
     const position = await bf.getPosition(binance);
 
     let text = `balance : <b>${balance}</b>\n\n`;
-    text += `<b>Market ${config.market}</b>\nprice : <b>${currentPrice}</b>`;
+    text += `<b>Market ${config.market}</b>\nprice : <b>${currentPrice}</b>\n\n`;
 
     if (position) {
         text += `position : ${position.type == 1 ? "buy" : "sell"}

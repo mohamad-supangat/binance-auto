@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@mathieuc/tradingview": "github:Mathieu2301/TradingView-API",
         "ascii-table3": "^0.9.0",
         "binance-api-node": "^0.12.7",
         "dotenv": "^16.3.1",
