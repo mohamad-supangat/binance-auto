@@ -6,7 +6,9 @@ import * as bf from "./../src/helpers.js";
 
 // send current status
 const status = await fn.getStatus();
+console.log(status);
 await bf.sendMessage(status);
 
 const ta = await fn.tradingViewTA();
+console.log(ta);
 await bf.sendMessage(ta);
