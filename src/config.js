@@ -27,7 +27,7 @@ const config = {
         locale: "id",
         symbol: `${symbol}${base}`,
         signal_delay: 3,
-        timeframe: "15",
+        timeframe: "240",
         indicator: "PUB;0Bgj6noVlHAZK2fbozpk8pwQcgzMToCx",
         buy: {
             key: "ENTER",

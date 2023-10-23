@@ -17,7 +17,11 @@ chart.setMarket("BINANCE:" + config.tradingview.symbol, {
 
 TradingView.getIndicator(config.tradingview.indicator).then(async (indic) => {
     console.log(`Loading '${indic.description}' study...`);
+
     const STD = new chart.Study(indic);
+
+
+    console.log(STD);
 
     STD.onUpdate(async () => {
         const data = STD.periods;
@@ -44,7 +48,7 @@ TradingView.getIndicator(config.tradingview.indicator).then(async (indic) => {
             price: currentPrice,
         });
 
-        if (signal == 0) {
+        if (signal != 0) {
             bf.sendMessage(
                 `price: ${currentPrice}\n\n<b>Signal: ${
                     signal < 0 ? "SHORT" : "LONG"
