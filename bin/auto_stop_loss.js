@@ -104,6 +104,10 @@ async function main() {
                 Number(position.qty) * 2,
                 targetStopPrice,
             );
+
+            bf.sendMessage(
+                `<b> new stop loss <b/> \n level: ${lsLvl}\n target pnl: ${slTarget.target}\n target exit price: ${targetStopPrice}`,
+            );
             // bf.submit
         }
     }
