@@ -2,6 +2,7 @@ import * as bf from "./helpers.js";
 import config from "./config.js";
 
 const binance = bf.binanceClient();
+const bot = new Telegraf(config.telegram_bot_token);
 
 export async function tradingViewTA() {
     let intervals = [];

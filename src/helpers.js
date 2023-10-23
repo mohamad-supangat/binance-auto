@@ -5,6 +5,7 @@ import marketData from "./data/market.js";
 import _ from "lodash";
 
 import { AsciiTable3 } from "ascii-table3";
+import { Telegraf } from "telegraf";
 
 import {
     TradingViewScan as TradingViewTA,
@@ -430,4 +431,15 @@ export async function getTradingViewTA(interval = "5m") {
     ).analyze();
 
     return result;
+}
+
+/**
+ * fungsi untuk mengirimkan pesan ke telergam
+ * @class
+ * @classdesc
+ */
+export async function sendMessage(message, parse_mode = "HTML") {
+    return bot.telegram.sendMessage(config.telegram_chat_id, message, {
+        parse_mode: parse_mode,
+    });
 }
