@@ -12,6 +12,7 @@ const binance = bf.binanceClient();
  * level di akumulasikan terhadap konfigurasi
  *
  * @param {any} lvl target lvl pnl
+ * @return {target, condition} target pnl, kondisi yang di perlukan untuk mengeksekusi stop_loss
  */
 export function getTarget(lvl) {
     let target = 0;
