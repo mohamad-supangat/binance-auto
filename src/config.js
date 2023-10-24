@@ -1,10 +1,11 @@
 import fs from "fs";
 import "dotenv/config";
+import _ from "lodash";
 
 const base = "USDT";
 const symbol = "OCEAN";
 const config = {
-    test: process.env.TEST === "true", // check untuk testnet
+    test: _.get(process.env, "TEST", "true") === "true", // check untuk testnet
     paper: true, // check untuk menjalankan paper mode / tidak create order live
 
     percent_order: 100,
@@ -18,16 +19,16 @@ const config = {
     base_asset: base,
 
     // pengaturan api key
-    test_APIKEY: process.env.TEST_BINANCE_API_KEY,
-    test_APISECRET: process.env.TEST_BINANCE_API_SECRET,
+    test_APIKEY: _.get(process.env, "TEST_BINANCE_API_KEY"),
+    test_APISECRET: _.get(process.env, "TEST_BINANCE_API_SECRET"),
 
     // live api key
-    APIKEY: process.env.BINANCE_API_KEY,
-    APISECRET: process.env.BINANCE_API_SECRET,
+    APIKEY: _.get(process.env, "BINANCE_API_KEY"),
+    APISECRET: _.get(process.env, "BINANCE_API_SECRET"),
 
     // pengaturan telegram
-    telegram_bot_token: process.env.TELEGRAM_BOT_TOKEN,
-    telegram_chat_id: process.env.TELEGRAM_CHAT_ID,
+    telegram_bot_token: _.get(process.env, "TELEGRAM_BOT_TOKEN"),
+    telegram_chat_id: _.get(process.env, "TELEGRAM_CHAT_ID"),
 
     tradingview: {
         locale: "id",
@@ -46,10 +47,10 @@ const config = {
     },
 
     stop_loss: {
-        order_type: "STOP",
-        min_pnl: 0.05,
-        every: 0.05,
-        spread: 0.08,
+        order_type: _.get(process.env, "STOP_LOSS_ORDER_TYPE", "STOP"),
+        min_pnl: Number(_.get(process.env, "STOP_LOSS_MIN_PNL", 0.05)),
+        every: Number(_.get(process.env, "STOP_LOSS_EVERY", 0.05)),
+        spread: Number(_.get(process.env, "STOP_LOSS_SPREAD", 0.08)),
     },
 };
 
