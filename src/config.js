@@ -49,7 +49,7 @@ const config = {
     stop_loss: {
         order_type: _.get(process.env, "STOP_LOSS_ORDER_TYPE", "STOP"),
         min_pnl: Number(_.get(process.env, "STOP_LOSS_MIN_PNL", 0.05)),
-        every: Number(_.get(process.env, "STOP_LOSS_EVERY", 0.05)),
+        every: Number(_.get(process.env, "STOP_LOSS_EVERY", 0.02)),
         spread: Number(_.get(process.env, "STOP_LOSS_SPREAD", 0.08)),
     },
 };
