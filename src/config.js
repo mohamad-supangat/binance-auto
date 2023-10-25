@@ -2,8 +2,9 @@ import fs from "fs";
 import "dotenv/config";
 import _ from "lodash";
 
-const base = "USDT";
-const symbol = "OCEAN";
+const base = _.upperCase(_.get(process.env, "BASE_ASSET", "USDT"));
+const symbol = _.upperCase(_.get(process.env, "SYMBOL", "OCEAN"));
+
 const config = {
     test: _.get(process.env, "TEST", "true") === "true", // check untuk testnet
     paper: true, // check untuk menjalankan paper mode / tidak create order live
