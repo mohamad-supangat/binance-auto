@@ -87,6 +87,7 @@ async function main() {
         for (const order of stopLossOrders) {
             // jika open order merupakan stop loss dengan level yang sama maka jangandi close  jika iya maka close saja
             if (
+                !hasStopOrder &&
                 order.type != position.type &&
                 order.stopPrice == targetStopPrice
             ) {
