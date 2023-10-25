@@ -51,6 +51,7 @@ The bot supports the following Telegram commands, copy and paste to botFather:
 ```
 status - get balance, symbol price, future position
 tradingview_ta - get tradingview technical analitycs recommendations
+orders - get all open orders
 ```
 **Disclaimer**
 
