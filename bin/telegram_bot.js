@@ -34,6 +34,22 @@ bot.command("tradingview_ta", async (ctx) => {
     ctx.replyWithHTML(ta);
 });
 
+bot.command("submit_order", async (ctx) => {
+    if (!checkUser(ctx)) return;
+    const params = _.split(
+        _.replace(_.upperCase(ctx.payload), /\s+/g, " "),
+        " ",
+    );
+
+    if (!["SHORT", "LONG"].includes(params[0])) {
+        return ctx.reply(`only short and long for type order`);
+    }
+    const type = params[0] == 'SHORT' ? -1 : 1;
+
+    await bf.submitOrder(binance, type);
+    console.log(params);
+});
+
 bot.command("orders", async (ctx) => {
     if (!checkUser(ctx)) return;
     const orders = await bf.getOpenOrders(binance);
