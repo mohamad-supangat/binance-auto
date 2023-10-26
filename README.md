@@ -1,6 +1,9 @@
 **Binance Future Trading Automation with Telegram**
 
+
 This repository contains a simple Binance trading automation script that can be used to send and receive Telegram commands to place and manage trades, as well as receive notifications about trades and account balances.
+
+![image](https://github.com/mohamad-supangat/binance-auto/assets/48933993/0dd37088-01c0-48d8-871a-797a1e591a6b)
 
 **Requirements**
 
