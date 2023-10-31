@@ -37,6 +37,9 @@ dependencies:
     version: 2.6.2
 
 devDependencies:
+  '@types/lodash':
+    specifier: ^4.14.200
+    version: 4.14.200
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
@@ -46,6 +49,10 @@ packages:
   /@telegraf/types@6.9.1:
     resolution: {integrity: sha512-bzqwhicZq401T0e09tu8b1KvGfJObPmzKU/iKCT5V466AsAZZWQrBYQ5edbmD1VZuHLEwopoOVY5wPP4HaLtug==}
     dev: false
+
+  /@types/lodash@4.14.200:
+    resolution: {integrity: sha512-YI/M/4HRImtNf3pJgbF+W6FrXovqj+T+/HpENLTooK9PnkacBsDpeP3IpHab40CClUfhNmdM2WTNP2sa2dni5Q==}
+    dev: true
 
   /abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
