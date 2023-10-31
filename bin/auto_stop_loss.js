@@ -55,6 +55,7 @@ async function main() {
     if (position) {
         const entryPrice = position.entryPrice;
         const currentPnl = position.pnl;
+        const targetQtyOrder = Number(position.qty) * 2;
 
         // mendapatkan lvl stop loss untuk pnl sekarang
         lsLvl = getLvl(currentPnl);
@@ -89,7 +90,8 @@ async function main() {
             if (
                 !hasStopOrder &&
                 order.type != position.type &&
-                order.stopPrice == targetStopPrice
+                (order.stopPrice == targetStopPrice ||
+                    order.qty == targetQtyOrder)
             ) {
                 hasStopOrder = true;
             } else {
@@ -103,7 +105,7 @@ async function main() {
             await bf.submitStopLossOrder(
                 binance,
                 position.type,
-                Number(position.qty) * 2,
+                targetQtyOrder,
                 targetStopPrice,
             );
 
